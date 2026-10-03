@@ -1,0 +1,27 @@
+name: Monthly Sales Tax Alert
+
+on:
+  schedule:
+    # Runs at 2:15 PM EST (19:15 UTC) on the 1st day of every month
+    - cron: '15 19 1 * *'
+  workflow_dispatch: # Allows manual testing anytime
+
+jobs:
+  run-alert:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+
+    - name: Run Python script
+      env:
+        EMAIL_USER: ${{ secrets.EMAIL_USER }}
+        EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+      run: |
+        python salestaxalert.py
