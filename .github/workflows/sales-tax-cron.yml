@@ -2,10 +2,9 @@ name: Monthly Sales Tax Alert
 
 on:
   schedule:
-    # Runs at 2:15 PM EST (19:15 UTC) on the 1st day of every month
-    - cron: '15 19 1 * *'
+    - cron: '15 19 1 * *'  # Runs on the 1st of every month at 3:15 PM EDT
     - cron: '15 19 5 * *'  # Runs on the 5th of every month at 3:15 PM EDT
-    - cron: '30 19 3 * *'  # Runs on the 5th of every month at 3:15 PM EDT
+    - cron: '20 * 3 * *'  # Runs on the 3rd of every month at 3:30 PM EDT
   workflow_dispatch: # Allows manual testing anytime
 
 jobs:
