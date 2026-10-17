@@ -2,7 +2,7 @@ name: Monthly Sales Tax Alert
 
 on:
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '17 10 1 * *'
   workflow_dispatch:
 
 jobs:
